@@ -39,12 +39,12 @@ function playSounds(key){
 }
 
 function buttonAnimation(currentKey){
-    var currentButton=document.querySelector("."+currentKey);
-    currentButton.classList.add("pressed");
-    
-    setTimeout(function() {
-        currentButton.classList.remove("pressed");
-    },100);
+  var currentButton=document.querySelector("."+currentKey);
+
+  currentButton.classList.add("pressed");
+  setTimeout(function(){
+    currentButton.classList.remove("pressed");
+  },100);
 }
 
 document.addEventListener("keypress",function(event){
@@ -55,9 +55,9 @@ document.addEventListener("keypress",function(event){
 function drumRoll() {
   for (var i = 0; i < buttons.length; i++)
     buttons[i].addEventListener("click", function(){
-        var itemName = this.innerHTML;
-        playSounds(itemName);
-        buttonAnimation(itemName);
+        var currentKey = this.innerHTML;
+        playSounds(currentKey);
+        buttonAnimation(currentKey);
     });
 }
 
