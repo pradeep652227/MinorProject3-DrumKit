@@ -38,8 +38,18 @@ function playSounds(key){
       audio.play();
 }
 
+function buttonAnimation(currentKey){
+    var currentButton=document.querySelector("."+currentKey);
+    currentButton.classList.add("pressed");
+    
+    setTimeout(function() {
+        currentButton.classList.remove("pressed");
+    },100);
+}
+
 document.addEventListener("keypress",function(event){
     playSounds(event.key);
+    buttonAnimation(event.key);
 });
 
 function drumRoll() {
@@ -47,6 +57,7 @@ function drumRoll() {
     buttons[i].addEventListener("click", function(){
         var itemName = this.innerHTML;
         playSounds(itemName);
+        buttonAnimation(itemName);
     });
 }
 
